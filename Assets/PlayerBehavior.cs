@@ -10,11 +10,32 @@ public class PlayerBehavior : MonoBehaviour {
 	private Rigidbody2D rigidbody;
 	private bool isGrounded;
 	private FloorCollider floorCollider;
+	private Animator animator;
+	private SpriteRenderer spriteRenderer;
 
 	private void Awake() {
 		floorCollider = gameObject.GetComponentInChildren<FloorCollider> ();
 		rigidbody = GetComponent<Rigidbody2D>();
 		isGrounded = false;
+		animator = GetComponent<Animator> ();
+		spriteRenderer = GetComponent<SpriteRenderer> ();
+	}
+
+	void Update() {
+		float horizontalSpeed = rigidbody.velocity.x;
+		float verticalSpeed = rigidbody.velocity.y;
+
+		bool facingLeft = spriteRenderer.flipX;
+		if (horizontalSpeed < 0 && !facingLeft) {
+			Debug.Log ("Turn left!");
+			spriteRenderer.flipX = true;
+		} else if (horizontalSpeed > 0 && facingLeft) {
+			Debug.Log ("Turn right!");
+			spriteRenderer.flipX = false; 
+		}
+
+		animator.SetBool ("HorizontalMotion", (horizontalSpeed != 0));
+		animator.SetBool ("VerticalMotion", (verticalSpeed != 0));
 	}
 
 	void FixedUpdate () {
@@ -24,10 +45,12 @@ public class PlayerBehavior : MonoBehaviour {
 
 		bool isJumping = false;
 		if (isGrounded && Input.GetButtonDown("Jump") && rigidbody.velocity.y <= 0) {
-			Debug.Log ("jump");
 			isJumping = true;
 		}
 
-		rigidbody.velocity = new Vector2 (horizontalInput * maxHorizontalSpeed, rigidbody.velocity.y + (isJumping ? jumpSpeed : 0));
+		float newHorizontalVelocity = horizontalInput * maxHorizontalSpeed;
+		float newVerticalVelocity = rigidbody.velocity.y + (isJumping ? jumpSpeed : 0);
+
+		rigidbody.velocity = new Vector2 (newHorizontalVelocity, newVerticalVelocity);
 	}
 }

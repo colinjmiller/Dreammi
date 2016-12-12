@@ -1,0 +1,254 @@
+fileFormatVersion: 2
+guid: ab88e80cddb2d46909b6d8adaaabc736
+timeCreated: 1481522367
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: PlayerAnimations_0
+    21300002: PlayerAnimations_1
+    21300004: PlayerAnimations_2
+    21300006: PlayerAnimations_3
+    21300008: PlayerAnimations_4
+    21300010: PlayerAnimations_5
+    21300012: PlayerAnimations_6
+    21300014: PlayerAnimations_7
+    21300016: PlayerAnimations_8
+    21300018: PlayerAnimations_9
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: PlayerAnimations_0
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 115
+        width: 40
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 11, y: 47}
+        - {x: -12, y: 47}
+        - {x: -19, y: 21}
+        - {x: -20, y: 2}
+        - {x: -20, y: -47}
+        - {x: 20, y: -47}
+        - {x: 20, y: 2}
+        - {x: 16, y: 46}
+    - name: PlayerAnimations_1
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 114
+        width: 41
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 20.5, y: -22}
+        - {x: 9.5, y: 47}
+        - {x: -12.5, y: 47}
+        - {x: -20.5, y: 5}
+        - {x: -20.5, y: -47}
+        - {x: 20.5, y: -47}
+    - name: PlayerAnimations_2
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 0
+        width: 60
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 30, y: -45}
+        - {x: 30, y: -38}
+        - {x: 29, y: -37}
+        - {x: 30, y: -34}
+        - {x: 30, y: 25}
+        - {x: 13, y: 48}
+        - {x: -10, y: 48}
+        - {x: -22, y: 43}
+        - {x: -30, y: 7}
+        - {x: -30, y: -45}
+        - {x: -24, y: -48}
+        - {x: 27, y: -48}
+    - name: PlayerAnimations_3
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 0
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24.5, y: -14}
+        - {x: -24.5, y: -48}
+        - {x: 24.5, y: -48}
+        - {x: 24.5, y: 34}
+        - {x: 22.5, y: 48}
+        - {x: -2.5, y: 48}
+        - {x: -17.5, y: 29}
+    - name: PlayerAnimations_4
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 0
+        width: 34
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: -44}
+        - {x: -11, y: -48}
+        - {x: 17, y: -48}
+        - {x: 17, y: 48}
+        - {x: -10, y: 48}
+        - {x: -17, y: -7}
+    - name: PlayerAnimations_5
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 0
+        width: 39
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -0.5, y: -46.5}
+        - {x: 0.5, y: -47.5}
+        - {x: 19.5, y: -47.5}
+        - {x: 19.5, y: 29.5}
+        - {x: 17.5, y: 47.5}
+        - {x: -10.5, y: 47.5}
+        - {x: -19.5, y: 21.5}
+        - {x: -19.5, y: -47.5}
+        - {x: -0.5, y: -47.5}
+        - {x: -0.5, y: -44.5}
+        - {x: -2.5, y: -42.5}
+        - {x: -1.5, y: -26.5}
+    - name: PlayerAnimations_6
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 0
+        width: 51
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 25.5, y: -48}
+        - {x: 25.5, y: 10}
+        - {x: 6.5, y: 48}
+        - {x: -13.5, y: 48}
+        - {x: -25.5, y: 5}
+        - {x: -25.5, y: -48}
+        - {x: -7.5, y: -48}
+        - {x: -6.5, y: -47}
+        - {x: -5.5, y: -44}
+        - {x: 0.5, y: -48}
+    - name: PlayerAnimations_7
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 0
+        width: 48
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: 48}
+        - {x: -13, y: 27}
+        - {x: -10, y: -1}
+        - {x: -8, y: -6}
+        - {x: -24, y: -28}
+        - {x: -24, y: -48}
+        - {x: 24, y: -48}
+        - {x: 24, y: -16}
+        - {x: 14, y: 46}
+        - {x: 10, y: 48}
+    - name: PlayerAnimations_8
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 0
+        width: 27
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PlayerAnimations_9
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 0
+        width: 39
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9.5, y: 48}
+        - {x: -19.5, y: 27}
+        - {x: -19.5, y: -48}
+        - {x: 19.5, y: -48}
+        - {x: 19.5, y: 6}
+        - {x: 13.5, y: 48}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
