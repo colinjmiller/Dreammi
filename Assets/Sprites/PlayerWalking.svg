@@ -17,7 +17,7 @@
    version="1.1"
    inkscape:version="0.48.5 r10040"
    sodipodi:docname="PlayerWalking.svg"
-   inkscape:export-filename="E:\Users\Colin\Documents\GitHub\Dreammi\Assets\Sprites\PlayerWalking.png"
+   inkscape:export-filename="E:\Users\Colin\Documents\GitHub\Dreammi\Assets\Sprites\PlayerAnimations.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <defs
@@ -2466,11 +2466,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="7.0710678"
+     inkscape:zoom="3.5355339"
      inkscape:cx="64.007426"
      inkscape:cy="157.37389"
      inkscape:document-units="px"
-     inkscape:current-layer="layer12"
+     inkscape:current-layer="layer2"
      showgrid="false"
      inkscape:window-width="1280"
      inkscape:window-height="961"
@@ -2499,7 +2499,7 @@
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="Guide"
-     style="display:inline"
+     style="display:none"
      transform="translate(0,128)">
     <image
        style="display:inline"
