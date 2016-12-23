@@ -6,6 +6,7 @@ public class PlayerBehavior : MonoBehaviour {
 	[SerializeField] private LayerMask groundLayers;
 	[SerializeField] private float maxHorizontalSpeed = 8f;
 	[SerializeField] private float jumpSpeed = 8f;
+	[SerializeField] private Camera mainCamera;
 
 	private Rigidbody2D rigidbody;
 	private bool isGrounded;
@@ -27,15 +28,15 @@ public class PlayerBehavior : MonoBehaviour {
 
 		bool facingLeft = spriteRenderer.flipX;
 		if (horizontalSpeed < 0 && !facingLeft) {
-			Debug.Log ("Turn left!");
 			spriteRenderer.flipX = true;
 		} else if (horizontalSpeed > 0 && facingLeft) {
-			Debug.Log ("Turn right!");
 			spriteRenderer.flipX = false; 
 		}
 
 		animator.SetBool ("HorizontalMotion", (horizontalSpeed != 0));
 		animator.SetBool ("VerticalMotion", (verticalSpeed != 0));
+
+		fixCamera (transform.position);
 	}
 
 	void FixedUpdate () {
@@ -52,5 +53,10 @@ public class PlayerBehavior : MonoBehaviour {
 		float newVerticalVelocity = rigidbody.velocity.y + (isJumping ? jumpSpeed : 0);
 
 		rigidbody.velocity = new Vector2 (newHorizontalVelocity, newVerticalVelocity);
+	}
+
+	private void fixCamera(Vector3 location) {
+		Vector3 newLocation = new Vector3 (location.x, location.y, -10);
+		mainCamera.transform.position = newLocation;
 	}
 }
