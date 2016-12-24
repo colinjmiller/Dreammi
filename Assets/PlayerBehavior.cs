@@ -10,6 +10,7 @@ public class PlayerBehavior : MonoBehaviour {
 
 	private Rigidbody2D rigidbody;
 	private bool isGrounded;
+	private bool isClimbing;
 	private FloorCollider floorCollider;
 	private Animator animator;
 	private SpriteRenderer spriteRenderer;
@@ -18,6 +19,7 @@ public class PlayerBehavior : MonoBehaviour {
 		floorCollider = gameObject.GetComponentInChildren<FloorCollider> ();
 		rigidbody = GetComponent<Rigidbody2D>();
 		isGrounded = false;
+		isClimbing = false;
 		animator = GetComponent<Animator> ();
 		spriteRenderer = GetComponent<SpriteRenderer> ();
 	}
@@ -40,10 +42,16 @@ public class PlayerBehavior : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		isGrounded = floorCollider.isPlayerGrounded ();
 		float verticalInput = Input.GetAxis("Vertical");
 		float horizontalInput = Input.GetAxis("Horizontal");
+		rigidbody.gravityScale = 1f;
 
+		if (isClimbing) {
+			climbingBehavior (verticalInput, horizontalInput);
+			return;
+		}
+
+		isGrounded = floorCollider.isPlayerGrounded ();
 		bool isJumping = false;
 		if (isGrounded && Input.GetButtonDown("Jump")) {
 			isJumping = true;
@@ -53,6 +61,29 @@ public class PlayerBehavior : MonoBehaviour {
 		float newVerticalVelocity = Mathf.Min(rigidbody.velocity.y + (isJumping ? jumpSpeed : 0), jumpSpeed);
 
 		rigidbody.velocity = new Vector2 (newHorizontalVelocity, newVerticalVelocity);
+	}
+
+	void OnTriggerEnter2D(Collider2D other) {
+		if (other.tag == "Ladder") {
+			isClimbing = true;
+		}
+	}
+
+	void OnTriggerStay2D(Collider2D other) {
+		if (other.tag == "Ladder") {
+			isClimbing = true;
+		}
+	}
+
+	void OnTriggerExit2D(Collider2D other) {
+		if (other.tag == "Ladder") {
+			isClimbing = false;
+		}
+	}
+
+	void climbingBehavior(float verticalInput, float horizontalInput) {
+		rigidbody.gravityScale = 0f;
+		rigidbody.velocity = new Vector2 (horizontalInput, verticalInput * 4f);
 	}
 
 	private void fixCamera(Vector3 location) {
