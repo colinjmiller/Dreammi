@@ -45,12 +45,12 @@ public class PlayerBehavior : MonoBehaviour {
 		float horizontalInput = Input.GetAxis("Horizontal");
 
 		bool isJumping = false;
-		if (isGrounded && Input.GetButtonDown("Jump") && rigidbody.velocity.y <= 0) {
+		if (isGrounded && Input.GetButtonDown("Jump")) {
 			isJumping = true;
 		}
 
 		float newHorizontalVelocity = horizontalInput * maxHorizontalSpeed;
-		float newVerticalVelocity = rigidbody.velocity.y + (isJumping ? jumpSpeed : 0);
+		float newVerticalVelocity = Mathf.Min(rigidbody.velocity.y + (isJumping ? jumpSpeed : 0), jumpSpeed);
 
 		rigidbody.velocity = new Vector2 (newHorizontalVelocity, newVerticalVelocity);
 	}
