@@ -48,19 +48,9 @@ public class PlayerBehavior : MonoBehaviour {
 
 		if (isClimbing) {
 			climbingBehavior (verticalInput, horizontalInput);
-			return;
+		} else {
+			defaultMovementBehavior (verticalInput, horizontalInput);
 		}
-
-		isGrounded = floorCollider.isPlayerGrounded ();
-		bool isJumping = false;
-		if (isGrounded && Input.GetButtonDown("Jump")) {
-			isJumping = true;
-		}
-
-		float newHorizontalVelocity = horizontalInput * maxHorizontalSpeed;
-		float newVerticalVelocity = Mathf.Min(rigidbody.velocity.y + (isJumping ? jumpSpeed : 0), jumpSpeed);
-
-		rigidbody.velocity = new Vector2 (newHorizontalVelocity, newVerticalVelocity);
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
@@ -83,7 +73,20 @@ public class PlayerBehavior : MonoBehaviour {
 
 	void climbingBehavior(float verticalInput, float horizontalInput) {
 		rigidbody.gravityScale = 0f;
-		rigidbody.velocity = new Vector2 (horizontalInput, verticalInput * 4f);
+		rigidbody.velocity = new Vector2 (horizontalInput * 2f, verticalInput * 4f);
+	}
+
+	void defaultMovementBehavior(float verticalInput, float horizontalInput) {
+		isGrounded = floorCollider.isPlayerGrounded ();
+		bool isJumping = false;
+		if (isGrounded && Input.GetButtonDown("Jump")) {
+			isJumping = true;
+		}
+
+		float newHorizontalVelocity = horizontalInput * maxHorizontalSpeed;
+		float newVerticalVelocity = Mathf.Min(rigidbody.velocity.y + (isJumping ? jumpSpeed : 0), jumpSpeed);
+
+		rigidbody.velocity = new Vector2 (newHorizontalVelocity, newVerticalVelocity);
 	}
 
 	private void fixCamera(Vector3 location) {
