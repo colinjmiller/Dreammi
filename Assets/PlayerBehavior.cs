@@ -10,16 +10,18 @@ public class PlayerBehavior : MonoBehaviour {
 
 	private Rigidbody2D rigidbody;
 	private bool isGrounded;
-	private bool isClimbing;
 	private FloorCollider floorCollider;
+	private WaterCollider waterCollider;
+	private ClimbCollider climbCollider;
 	private Animator animator;
 	private SpriteRenderer spriteRenderer;
 
 	private void Awake() {
-		floorCollider = gameObject.GetComponentInChildren<FloorCollider> ();
 		rigidbody = GetComponent<Rigidbody2D>();
 		isGrounded = false;
-		isClimbing = false;
+		floorCollider = GetComponentInChildren<FloorCollider> ();
+		waterCollider = GetComponentInChildren<WaterCollider> ();
+		climbCollider = GetComponentInChildren<ClimbCollider> ();
 		animator = GetComponent<Animator> ();
 		spriteRenderer = GetComponent<SpriteRenderer> ();
 	}
@@ -46,34 +48,24 @@ public class PlayerBehavior : MonoBehaviour {
 		float horizontalInput = Input.GetAxis("Horizontal");
 		rigidbody.gravityScale = 1f;
 
-		if (isClimbing) {
+		if (climbCollider.isPlayerClimbing()) {
 			climbingBehavior (verticalInput, horizontalInput);
+		} else if (waterCollider.isPlayerSwimming ()) {
+			swimmingBehavior (verticalInput, horizontalInput);
 		} else {
 			defaultMovementBehavior (verticalInput, horizontalInput);
 		}
 	}
 
-	void OnTriggerEnter2D(Collider2D other) {
-		if (other.tag == "Ladder") {
-			isClimbing = true;
-		}
-	}
-
-	void OnTriggerStay2D(Collider2D other) {
-		if (other.tag == "Ladder") {
-			isClimbing = true;
-		}
-	}
-
-	void OnTriggerExit2D(Collider2D other) {
-		if (other.tag == "Ladder") {
-			isClimbing = false;
-		}
-	}
-
 	void climbingBehavior(float verticalInput, float horizontalInput) {
 		rigidbody.gravityScale = 0f;
-		rigidbody.velocity = new Vector2 (horizontalInput * 2f, verticalInput * 4f);
+		rigidbody.velocity = new Vector2 (horizontalInput * 1.5f, verticalInput * 2.5f);
+	}
+
+	void swimmingBehavior(float verticalInput, float horizontalInput) {
+		rigidbody.gravityScale = 0f;
+		float dampeningVelocity = Mathf.Max (-2f, Mathf.Min (2f, rigidbody.velocity.y));
+		rigidbody.velocity = new Vector2 (horizontalInput * 3f, verticalInput * .75f + dampeningVelocity / 1.1f);
 	}
 
 	void defaultMovementBehavior(float verticalInput, float horizontalInput) {
